@@ -1,0 +1,94 @@
+section{
+    width: 100%;
+    height: 100vh;
+}
+.div1{
+    width: 100%;
+    height: 40%;
+    background-image: url('../images/bg-desktop-dark.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.div2{
+    width: 100%;
+    height: 60%;
+    background-color: black;
+}
+.todolist{
+    width: 40%;
+    margin: auto;
+    position: relative;
+    top: 70px;
+}
+input{
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: #222;
+    color:  white;
+    padding: 8px 0;
+}
+ul{
+    background-color: #222;
+    color:  white;
+    position: relative;
+    top: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+ul li{
+    padding: 8px ;
+    list-style: none;
+    position: relative;
+    cursor: pointer; 
+      
+   
+}
+.mylist #myli::before{
+    content: " ";
+    width: 28px;
+    height: 28px;
+    left: -20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    border: 1px solid;
+}
+ul li .checked{
+    text-decoration: line-through;
+}
+span{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    font-size: 23px;
+    font-weight: bold;
+}
+#aligner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid white;  
+}
+.div1 i{
+    position: relative;
+    margin-left: 70%;
+    top: 30px;
+    font-size: 40px;
+    color: white;
+}
+#lune{
+    display: none;
+}
+@media (max-width: 1200px){
+    .todolist{
+        width: 90%;
+    }
+    input , ul{
+        width: 100%;
+    }
+
+}
