@@ -44,7 +44,7 @@ let sol = document.getElementById('soleil')
 let lu = document.getElementById('lune')
 sol.addEventListener('click' , blanc)
 function blanc(){
-    firstdiv.style.backgroundImage = "url('../images/bg-desktop-light.jpg')"
+    firstdiv.style.backgroundImage = "url('images/bg-desktop-light.jpg')"
     lu.style.display = "block"
     secomddiv.style.backgroundColor = '#eee'
     valinput.style.backgroundColor = 'white'
@@ -57,7 +57,7 @@ function blanc(){
 
 lu.addEventListener('click' , noir)
 function noir(){
-    firstdiv.style.backgroundImage = "url('../images/bg-desktop-dark.jpg')"
+    firstdiv.style.backgroundImage = "url('images/bg-desktop-dark.jpg')"
     sol.style.display = "block"
     secomddiv.style.backgroundColor = 'black'
     valinput.style.backgroundColor = '#333'
