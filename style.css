@@ -31,42 +31,47 @@ input{
     color:  white;
     padding: 8px 0;
 }
-ul{
-    background-color: #222;
+.bloc{
+    background-color: #333;
     color:  white;
     position: relative;
     top: 30px;
     border-radius: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 ul li{
     padding: 8px ;
     list-style: none;
     position: relative;
     cursor: pointer; 
-      
    
 }
-.mylist #myli::before{
+ul li::before{
     content: " ";
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     left: -20px;
     border-radius: 50%;
     position: absolute;
     top: 15px;
     border: 1px solid;
 }
-ul li .checked{
+ul li.checked{
     text-decoration: line-through;
+    color: gray;
+   
 }
+ul li.checked::before{
+    background: linear-gradient(rgba(81, 81, 185,0.8),rgba(142, 93, 192,0.8) );
+}
+
 span{
     cursor: pointer;
     width: 30px;
     height: 30px;
     font-size: 23px;
     font-weight: bold;
-}
+} 
 #aligner{
     display: flex;
     justify-content: space-between;
@@ -79,9 +84,14 @@ span{
     top: 30px;
     font-size: 40px;
     color: white;
+    cursor: pointer;
 }
 #lune{
     display: none;
+}
+.blue:hover{
+    color: blue;
+    cursor: pointer;
 }
 @media (max-width: 1200px){
     .todolist{

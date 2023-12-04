@@ -1,22 +1,30 @@
 let valinput = document.getElementById('val')
 let list = document.querySelector('.mylist')
+let array = []
+let compteur = document.querySelector('.nombre')
 
-valinput.addEventListener('keyup' ,  function(event){
-    if(event.key == 'Enter'){
+valinput.addEventListener('keyup', function (event) {
+    if (valinput.value === ''){
+        alert('veillez remplir le champ')
+    }
+    else if (event.key == 'Enter') {
         addItem(this.value)
-        this.value = "" //pour que le champ soit vide pres chaque ajout
+        this.value = "" //pour que le champ soit vide apres chaque ajout
+        array.push(valinput)
+        compteur.innerHTML = `${array.length} items left`
+        
     }
 })
 //creation de l'element li
-let addItem = (valinput) =>{
-    let mydiv = document.createElement('div')
+let addItem = (valinput) => {
+    var mydiv = document.createElement('div')
     list.appendChild(mydiv)
-    mydiv.setAttribute('id' , 'aligner')
+    mydiv.setAttribute('id', 'aligner')
 
-    let newli = document.createElement('li')
-    newli.innerHTML = `<li>${valinput}</li>`
-    newli.setAttribute('id' , 'myli')
-    newli.addEventListener('click' , function(){
+    var newli = document.createElement('li')
+    newli.innerHTML = `${valinput}`
+    newli.setAttribute('id', 'myli')
+    newli.addEventListener('click', function () {
         this.classList.toggle('done')
     })
     mydiv.appendChild(newli)
@@ -24,14 +32,17 @@ let addItem = (valinput) =>{
     let spanx = document.createElement('span')
     spanx.innerHTML = '\u00d7'
     mydiv.appendChild(spanx)
+    //calcule
+     
+       
 }
 //deactiver et supprimer une tache 
-list.addEventListener('click' , function(e){
-    if(e.target.tagName === 'LI'){
+list.addEventListener('click', function (e) {
+    if (e.target.tagName === 'LI') {
         e.target.classList.toggle('checked')
 
     }
-    else if(e.target.tagName === 'SPAN'){
+    else if (e.target.tagName === 'SPAN') {
         e.target.parentElement.remove()
     }
 })
@@ -43,8 +54,8 @@ let lastdiv = document.getElementById('aligner')
 let sol = document.getElementById('soleil')
 let lu = document.getElementById('lune')
 let blocw = document.querySelector('.bloc')
-sol.addEventListener('click' , blanc)
-function blanc(){
+sol.addEventListener('click', blanc)
+function blanc() {
     firstdiv.style.backgroundImage = "url('images/bg-desktop-light.jpg')"
     lu.style.display = "block"
     secomddiv.style.backgroundColor = '#eee'
@@ -56,8 +67,8 @@ function blanc(){
     lastdiv.style.border = '1px solid black'
 }
 
-lu.addEventListener('click' , noir)
-function noir(){
+lu.addEventListener('click', noir)
+function noir() {
     firstdiv.style.backgroundImage = "url('images/bg-desktop-dark.jpg')"
     sol.style.display = "block"
     secomddiv.style.backgroundColor = 'black'
@@ -69,33 +80,33 @@ function noir(){
     lastdiv.style.border = "1px solid gray"
 }
 
-let visibility =  document.querySelector('.visible')
-function visible(){
+let visibility = document.querySelector('.visible')
+function visible() {
     list.style.display = 'block'
 }
-let novisible =  document.querySelector('.tout')
-function none(){
+let novisible = document.querySelector('.tout')
+function none() {
     list.style.display = 'none'
 }
 /*var supprime = document.getElementById('gros-titre')
 document.body.removeChild(supprime)
 <p class="rien blue" onclick="clear()">Clear Completed</p>*/
 let clearall = document.querySelector('.rien')
-function clear(){
+function clear() {
     document.body.removeChild(list)
 }
 
 //contruction de tableau pour sovoir le nombre de tache ajouter 
 let numtache = valinput.value
 let tab = []
-for(i = 0 ; i < numtache ; i++){tab.push(numtache)}
+for (i = 0; i < numtache; i++) { tab.push(numtache) }
 console.log(tab.length)
 
 // <p class="active blue" onclick="nombre">active</p>
 let affichenum = document.querySelector('.nombre')
 let num = document.querySelector('.active')
 // function activenum(){
-    // affichenum.textContent = 'items left'
+// affichenum.textContent = 'items left'
 // }
 
 

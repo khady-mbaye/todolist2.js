@@ -18,8 +18,17 @@
             <i class="bi bi-moon-fill"id="lune"></i>
             <div class="todolist">
                 <input type="text" id="val" placeholder="Ajouter une tache">
-                <ul class="mylist">
-                </ul>
+                <div class="d-flex flex-column bloc">
+                    <ul class="mylist">
+                    </ul>
+                    <div  class="d-flex justify-content-around">
+                        <p class="nombre" > 0 items left</p>
+                        <p class="visible blue" onclick="visible()">All</p>
+                        <p class="active blue" onclick="activenum()">active</p>
+                        <p class="tout blue" onclick="none()">Completed</p>
+                        <p class="rien blue" onclick="clear()">Clear Completed</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="div2">
@@ -28,7 +37,8 @@
 
     </section>
 
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
+    <script src="stock.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
