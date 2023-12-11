@@ -10,8 +10,12 @@ valinput.addEventListener('keyup', function (event) {
     else if (event.key == 'Enter') {
         addItem(this.value)
         this.value = "" //pour que le champ soit vide apres chaque ajout
+        // saveData()
         array.push(valinput)
         compteur.innerHTML = `${array.length} items left`
+        if(array.length===8){
+            list.style.cssText = ' margin:5px;position: relative;height: 350px;overflow-y: auto;'
+        }
         
     }
 })
@@ -40,11 +44,17 @@ let addItem = (valinput) => {
 list.addEventListener('click', function (e) {
     if (e.target.tagName === 'LI') {
         e.target.classList.toggle('checked')
+        // saveData()
 
     }
     else if (e.target.tagName === 'SPAN') {
         e.target.parentElement.remove()
+        // saveData()
+        array.splice(0,1)
+        compteur.innerHTML = `${array.length} items left`
+       
     }
+    
 })
 
 //pour le changement du background
@@ -60,11 +70,11 @@ function blanc() {
     lu.style.display = "block"
     secomddiv.style.backgroundColor = '#eee'
     valinput.style.backgroundColor = 'white'
+    // valinput.style.color = 'black'
     valinput.style.color = 'white'
     blocw.style.backgroundColor = 'white'
     blocw.style.color = 'black'
     sol.style.display = 'none'
-    lastdiv.style.border = '1px solid black'
 }
 
 lu.addEventListener('click', noir)
@@ -77,7 +87,6 @@ function noir() {
     blocw.style.backgroundColor = '#333'
     blocw.style.color = 'white'
     lu.style.display = 'none'
-    lastdiv.style.border = "1px solid gray"
 }
 
 let visibility = document.querySelector('.visible')
@@ -88,25 +97,13 @@ let novisible = document.querySelector('.tout')
 function none() {
     list.style.display = 'none'
 }
-/*var supprime = document.getElementById('gros-titre')
-document.body.removeChild(supprime)
-<p class="rien blue" onclick="clear()">Clear Completed</p>*/
-let clearall = document.querySelector('.rien')
-function clear() {
-    document.body.removeChild(list)
-}
 
-//contruction de tableau pour sovoir le nombre de tache ajouter 
-let numtache = valinput.value
-let tab = []
-for (i = 0; i < numtache; i++) { tab.push(numtache) }
-console.log(tab.length)
-
-// <p class="active blue" onclick="nombre">active</p>
-let affichenum = document.querySelector('.nombre')
-let num = document.querySelector('.active')
-// function activenum(){
-// affichenum.textContent = 'items left'
+//local storage
+// function saveData(){
+//     localStorage.setItem('data',list.innerHTML)
 // }
-
+// function showtask(){
+//     list.innerHTML = localStorage.getItem('data')
+// }
+// showtask()
 
